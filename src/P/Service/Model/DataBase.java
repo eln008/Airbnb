@@ -7,8 +7,17 @@ public class DataBase {
     private Booking booking;
     private Announcement[] announcements;
 
-    public DataBase() {
+    public DataBase(User[] users, Booking booking, Announcement[] announcements) {
         this.users = users;
+        this.booking = booking;
+        this.announcements = announcements;
+    }
+
+    public DataBase() {
+
+    }
+
+    public void setAnnouncements() {
     }
 
     public User[] getUsers() {
@@ -23,7 +32,7 @@ public class DataBase {
         return booking;
     }
 
-    public void setBooking(Booking booking) {
+    public void setBooking() {
         this.booking = booking;
     }
 
@@ -35,11 +44,15 @@ public class DataBase {
         this.announcements = announcements;
     }
 
+
     @Override
     public String toString() {
         return "DataBaseForUser{" +
                 "\n  users=" + Arrays.toString(users) +
+                ",\n  booking=" + booking +
+                ",\n  announcements=" + Arrays.toString(announcements) +
                 "\n}";
     }
+
 
 }

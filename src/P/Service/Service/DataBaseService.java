@@ -1,22 +1,21 @@
 package P.Service.Service;
 
-import P.Service.Model.DataBaseForUser;
 import P.Service.Model.User;
 
-public class DataBaseForUserService {
-    private DataBaseForUser dataBaseForUser;
+public class DataBaseService {
+    private DataBaseService dataBaseService;
 
-    public DataBaseForUserService(DataBaseForUser dataBaseForUser) {
-        this.dataBaseForUser = dataBaseForUser;
+    public DataBaseService(DataBaseService dataBaseService) {
+        this.dataBaseService = dataBaseService;
     }
 
-    public DataBaseForUserService() {
+    public DataBaseService() {
 
     }
-
     public User[] getAllUser() {
-        return dataBaseForUser.getUsers();
+        return dataBaseService.getAllUser();
     }
+
 
 }
 
