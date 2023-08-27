@@ -4,28 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8477283c-0c8d-47ca-ab9e-4a1397a8df97" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Airbnb.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/P/Service/Enum/TypeHouse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/P/Service/Interface/AnnouncementInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/P/Service/Interface/BookingInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/P/Service/Interface/DataBAseInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/P/Service/Interface/UserInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/P/Service/Model/Address.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/P/Service/Model/Announcement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/P/Service/Model/Booking.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/P/Service/Model/DataBase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/P/Service/Model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/P/Service/Service/AnnouncementService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/P/Service/Service/BookingService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/P/Service/Service/DataBaseService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/P/Service/Service/UserService.java" afterDir="false" />
+    <list default="true" id="8477283c-0c8d-47ca-ab9e-4a1397a8df97" name="Changes" comment="cc">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +47,19 @@
       <option name="presentableId" value="Default" />
       <updated>1692797592445</updated>
     </task>
+    <task id="LOCAL-00001" summary="cc">
+      <option name="closed" value="true" />
+      <created>1692972997669</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1692972997669</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="cc" />
+    <option name="LAST_COMMIT_MESSAGE" value="cc" />
   </component>
 </project>

@@ -4,6 +4,8 @@ import P.Service.Service.AnnouncementService;
 import P.Service.Service.BookingService;
 import P.Service.Service.DataBaseService;
 import P.Service.Service.UserService;
+
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -41,19 +43,19 @@ public class Main {
         Announcement[] announcements8 = {announcement8};
         Announcement[] announcements9 = {announcement9};
         Announcement[] announcements10 = {announcement10};
-        Announcement[] announcements = {announcement1,announcement2,announcement2, announcement3, announcement4, announcement5, announcement6, announcement7, announcement8, announcement9, announcement10};
+        Announcement[] announcements = {announcement1, announcement2, announcement2, announcement3, announcement4, announcement5, announcement6, announcement7, announcement8, announcement9, announcement10};
 
 
-        User user1 = new User(1, "Иван", "Петров", "ivan@email.com", LocalDate.of(2023, 3, 5),announcements1);
+        User user1 = new User(1, "Иван", "Петров", "ivan@email.com", LocalDate.of(2023, 3, 5), announcements1);
         User user2 = new User(2, "Анна", "Сидорова", "anna@email.com", LocalDate.of(2022, 9, 25), announcements2);
         User user3 = new User(3, "Алексей", "Иванов", "alex@email.com", LocalDate.of(2023, 1, 15), announcements3);
         User user4 = new User(4, "Екатерина", "Смирнова", "ekaterina@email.com", LocalDate.of(2022, 12, 10), announcements4);
         User user5 = new User(5, "Михаил", "Козлов", "mikhail@email.com", LocalDate.of(2023, 5, 20), announcements5);
-        User user6 = new User(6, "Ольга", "Морозова", "olga@email.com", LocalDate.of(2022, 10, 8),announcements6);
+        User user6 = new User(6, "Ольга", "Морозова", "olga@email.com", LocalDate.of(2022, 10, 8), announcements6);
         User user7 = new User(7, "Павел", "Сергеев", "pavel@email.com", LocalDate.of(2023, 2, 14), announcements7);
         User user8 = new User(8, "Наталья", "Котова", "natalia@email.com", LocalDate.of(2022, 11, 30), announcements8);
         User user9 = new User(9, "Сергей", "Александров", "sergei@email.com", LocalDate.of(2023, 4, 12), announcements9);
-        User user10 = new User(10, "Анастасия", "Григорьева", "anastasia@email.com", LocalDate.of(2022, 8, 3),announcements10);
+        User user10 = new User(10, "Анастасия", "Григорьева", "anastasia@email.com", LocalDate.of(2022, 8, 3), announcements10);
 
         Booking booking3 = new Booking(user3, announcement4);
         Booking booking4 = new Booking(user8, announcement5);
@@ -65,94 +67,98 @@ public class Main {
         Booking booking10 = new Booking(user1, announcement8);
         User[] users = {user1, user2, user3, user4, user5, user6, user7, user8, user9, user10};
 
-                DataBase dataBase = new DataBase();
-                dataBase.setUsers(users);
-                dataBase.setAnnouncements(announcements);
-                dataBase.setBooking();
-                DataBaseService dataBaseService = new DataBaseService();
-                UserService userService = new UserService(dataBaseService);
-                BookingService bookingService = new BookingService(dataBase);
-                AnnouncementService announcementService = new AnnouncementService(dataBase);
+        DataBase dataBase = new DataBase();
+        dataBase.setUsers(users);
+        dataBase.setAnnouncements(announcements);
+        dataBase.setBooking();
+        DataBaseService dataBaseService = new DataBaseService();
+        UserService userService = new UserService(dataBaseService);
+        BookingService bookingService = new BookingService(dataBase);
+        AnnouncementService announcementService = new AnnouncementService(dataBase);
 
 
+        try {
+            Scanner scan = new Scanner(System.in);
+            int choice;
 
-                Scanner scan = new Scanner(System.in);
-                int choice;
+            do {
+                System.out.println("Выберите действие:");
+                System.out.println("1. Получить всех пользователей");
+                System.out.println("2. Получить объявление по ID пользователя");
+                System.out.println("3. Получить объявления по адресу");
+                System.out.println("4. Забронировать объявление");
+                System.out.println("5. Отменить бронь объявления");
+                System.out.println("6. Получить все объявления");
+                System.out.println("7. Создать объявление");
+                System.out.println("8. Получить объявление по ID");
+                System.out.println("9. Удалить объявление по ID");
+                System.out.println("10. Отсортировать объявления по рейтингу");
+                System.out.println("11. Отфильтровать объявления по цене");
+                System.out.println("12. Отфильтровать объявления по типу");
+                System.out.println("0. Выйти из программы");
+                System.out.print("Введите номер выбранного действия: ");
+                choice = scan.nextInt();
 
-                do {
-                    System.out.println("Выберите действие:");
-                    System.out.println("1. Получить всех пользователей");
-                    System.out.println("2. Получить объявление по ID пользователя");
-                    System.out.println("3. Получить объявления по адресу");
-                    System.out.println("4. Забронировать объявление");
-                    System.out.println("5. Отменить бронь объявления");
-                    System.out.println("6. Получить все объявления");
-                    System.out.println("7. Создать объявление");
-                    System.out.println("8. Получить объявление по ID");
-                    System.out.println("9. Удалить объявление по ID");
-                    System.out.println("10. Отсортировать объявления по рейтингу");
-                    System.out.println("11. Отфильтровать объявления по цене");
-                    System.out.println("12. Отфильтровать объявления по типу");
-                    System.out.println("0. Выйти из программы");
-                    System.out.print("Введите номер выбранного действия: ");
-                    choice = scan.nextInt();
-
-                    switch (choice) {
-                        case 1:
-                            System.out.println(Arrays.toString(userService.getAllUser()));
-                            break;
-                        case 2:
-                            System.out.print("Введите ID пользователя: ");
-                            long userId = scan.nextLong();
-                            System.out.println(Arrays.toString(userService.getAnnouncementByUserId(userId)));
-                            break;
-                        case 3:
-                            System.out.println(Arrays.toString(userService.getAnnouncementByAddress(address2)));
-                            break;
-                        case 4:
-                            System.out.println(bookingService.bookAnnouncement(announcement3));
-                            break;
-                        case 5:
-                            System.out.println(bookingService.unBookAnnouncement(announcement2));
-                            break;
-                        case 6:
-                            System.out.println(Arrays.toString(announcementService.getAllAnnouncement()));
-                            break;
-                        case 7:
-                            System.out.println(Arrays.toString(announcementService.createAnnouncement(new Announcement(11, "Описание 11-го объявления", LocalDate.of(2023, 8, 31), "Заголовок 11-го объявления", TypeHouse.APARTMENT, "Владелец 11", false, 3, 110, address1))));
-                            break;
-                        case 8:
-                            System.out.print("Введите ID объявления: ");
-                            long announcementId = scan.nextLong();
-                            System.out.println(announcementService.getAnnouncementById(announcementId));
-                            break;
-                        case 9:
-                            System.out.print("Введите ID объявления для удаления: ");
-                            int deleteAnnouncementId = scan.nextInt();
-                            announcementService.deleteAnnouncementById(deleteAnnouncementId);
-                            break;
-                        case 10:
-                            System.out.println(Arrays.toString(announcementService.sortAnnouncementsByRating()));
-                            break;
-                        case 11:
-                            System.out.print("Введите минимальную цену: ");
-                            long minPrice = scan.nextLong();
-                            System.out.print("Введите максимальную цену: ");
-                            long maxPrice = scan.nextLong();
-                            System.out.println(Arrays.toString(announcementService.sortByPrice(minPrice, maxPrice)));
-                            break;
-                        case 12:
-                            System.out.println(Arrays.toString(announcementService.filterByType()));
-                            break;
-                        case 0:
-                            System.out.println("Выход из программы.");
-                            break;
-                        default:
-                            System.out.println("Некорректный выбор. Пожалуйста, выберите действие из списка.");
-                    }
-                } while (choice != 0);
+                switch (choice) {
+                    case 1:
+                        System.out.println(Arrays.toString(userService.getAllUser()));
+                        break;
+                    case 2:
+                        System.out.print("Введите ID пользователя: ");
+                        long userId = scan.nextLong();
+                        System.out.println(Arrays.toString(userService.getAnnouncementByUserId(userId)));
+                        break;
+                    case 3:
+                        System.out.println(Arrays.toString(userService.getAnnouncementByAddress(address2)));
+                        break;
+                    case 4:
+                        System.out.println(bookingService.bookAnnouncement(announcement3));
+                        break;
+                    case 5:
+                        System.out.println(bookingService.unBookAnnouncement(announcement2));
+                        break;
+                    case 6:
+                        System.out.println(Arrays.toString(announcementService.getAllAnnouncement()));
+                        break;
+                    case 7:
+                        System.out.println(Arrays.toString(announcementService.createAnnouncement(new Announcement(11, "Описание 11-го объявления", LocalDate.of(2023, 8, 31), "Заголовок 11-го объявления", TypeHouse.APARTMENT, "Владелец 11", false, 3, 110, address1))));
+                        break;
+                    case 8:
+                        System.out.print("Введите ID объявления: ");
+                        long announcementId = scan.nextLong();
+                        System.out.println(announcementService.getAnnouncementById(announcementId));
+                        break;
+                    case 9:
+                        System.out.print("Введите ID объявления для удаления: ");
+                        int deleteAnnouncementId = scan.nextInt();
+                        announcementService.deleteAnnouncementById(deleteAnnouncementId);
+                        break;
+                    case 10:
+                        System.out.println(Arrays.toString(announcementService.sortAnnouncementsByRating()));
+                        break;
+                    case 11:
+                        System.out.print("Введите минимальную цену: ");
+                        long minPrice = scan.nextLong();
+                        System.out.print("Введите максимальную цену: ");
+                        long maxPrice = scan.nextLong();
+                        System.out.println(Arrays.toString(announcementService.sortByPrice(minPrice, maxPrice)));
+                        break;
+                    case 12:
+                        System.out.println(Arrays.toString(announcementService.filterByType()));
+                        break;
+                    case 0:
+                        System.out.println("Выход из программы.");
+                        break;
+                    default:
+                        throw new IllegalArgumentException("Некорректный выбор типа квартиры.");
+                }
+            } while (choice != 0);
+        } catch (InputMismatchException e) {
+            System.out.println("Ошибка: Некорректный ввод. Введите число.");
+        } catch (IllegalArgumentException e) {
+            System.out.println("Ошибка: " + e.getMessage());
 
 
-
+        }
     }
 }
